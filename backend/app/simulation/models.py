@@ -55,6 +55,12 @@ class SimulationConfig:
     exercise: list[ExerciseEvent] = field(default_factory=list)
     disturbance_std: float = 0.0
     correction_threshold_mgdl: float | None = None
+    model_name: str = "physiological-v2"
+    controller_enabled: bool = True
+    controller_kp: float = 0.015
+    controller_ki: float = 0.00008
+    controller_kd: float = 0.08
+    activity_effect_scale: float = 1.0
 
 
 @dataclass

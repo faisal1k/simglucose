@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Line, LineChart, ReferenceLine, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
+import { Line, LineChart, ReferenceArea, ReferenceLine, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 import { Api } from '../lib/api'
 import { useAppStore } from '../lib/store'
 import { StatCard } from '../components/StatCard'
@@ -29,7 +29,6 @@ export function RunnerPage() {
   }
 
   const data = latestResult?.points ?? []
-  const comparison = comparisonResult?.points ?? []
 
   return (
     <div className="space-y-6">
@@ -57,17 +56,30 @@ export function RunnerPage() {
         </div>
       )}
 
-      <div className="soft-card h-[420px] p-4">
-        <h3 className="mb-3 font-semibold">Glucose Trajectory</h3>
+      <div className="soft-card h-[460px] p-4">
+        <h3 className="mb-3 font-semibold">Glucose Trajectory with Target Zones</h3>
         <ResponsiveContainer>
           <LineChart data={data}>
             <XAxis dataKey="t_min" stroke="#94a3b8" />
-            <YAxis stroke="#94a3b8" domain={[40, 260]} />
+            <YAxis stroke="#94a3b8" domain={[40, 280]} />
             <Tooltip />
+            <ReferenceArea y1={40} y2={70} fill="#ef4444" fillOpacity={0.08} />
+            <ReferenceArea y1={70} y2={180} fill="#22c55e" fillOpacity={0.07} />
+            <ReferenceArea y1={180} y2={280} fill="#f59e0b" fillOpacity={0.08} />
             <ReferenceLine y={70} stroke="#f59e0b" strokeDasharray="4 4" />
             <ReferenceLine y={180} stroke="#ef4444" strokeDasharray="4 4" />
-            <Line type="monotone" dataKey="glucose_mgdl" stroke="#22d3ee" strokeWidth={2} dot={false} />
-            {comparison.length > 0 && <Line type="monotone" data={comparison} dataKey="glucose_mgdl" stroke="#c084fc" strokeWidth={2} dot={false} />}
+            <Line type="monotone" dataKey="glucose_mgdl" name="Primary Run" stroke="#22d3ee" strokeWidth={2.2} dot={false} />
+            {comparisonResult?.points?.length ? (
+              <Line
+                type="monotone"
+                data={comparisonResult.points}
+                dataKey="glucose_mgdl"
+                name="Comparison Run"
+                stroke="#c084fc"
+                strokeWidth={2}
+                dot={false}
+              />
+            ) : null}
           </LineChart>
         </ResponsiveContainer>
       </div>

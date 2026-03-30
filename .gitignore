@@ -15,3 +15,5 @@
 # Local app environments
 backend/.venv/
 frontend/node_modules/
+
+backend/app/data/app.db

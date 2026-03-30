@@ -7,16 +7,32 @@
     "starting_glucose_mgdl": 112,
     "target_glucose_mgdl": 110,
     "meals": [
-      {"time_min": 30, "carbs_g": 55}
+      {
+        "time_min": 30,
+        "carbs_g": 55
+      }
     ],
     "boluses": [
-      {"time_min": 20, "units": 5.5}
+      {
+        "time_min": 20,
+        "units": 5.5
+      }
     ],
     "correction_threshold_mgdl": 190,
     "exercise": [
-      {"start_min": 140, "end_min": 190, "intensity": 0.5}
+      {
+        "start_min": 140,
+        "end_min": 190,
+        "intensity": 0.5
+      }
     ],
-    "disturbance_std": 1.5
+    "disturbance_std": 1.5,
+    "model_name": "physiological-v2",
+    "controller_enabled": true,
+    "controller_kp": 0.015,
+    "controller_ki": 8e-05,
+    "controller_kd": 0.08,
+    "activity_effect_scale": 1.0
   },
   {
     "id": "sample-scenario-2",
@@ -26,13 +42,25 @@
     "starting_glucose_mgdl": 128,
     "target_glucose_mgdl": 110,
     "meals": [
-      {"time_min": 60, "carbs_g": 95}
+      {
+        "time_min": 60,
+        "carbs_g": 95
+      }
     ],
     "boluses": [
-      {"time_min": 45, "units": 8}
+      {
+        "time_min": 45,
+        "units": 8
+      }
     ],
     "correction_threshold_mgdl": 180,
     "exercise": [],
-    "disturbance_std": 2
+    "disturbance_std": 2,
+    "model_name": "physiological-v2",
+    "controller_enabled": true,
+    "controller_kp": 0.015,
+    "controller_ki": 8e-05,
+    "controller_kd": 0.08,
+    "activity_effect_scale": 1.0
   }
 ]

@@ -155,3 +155,12 @@ To help unblock quickly for a presentation:
    make run-backend
    make run-frontend
    ```
+
+## Backend Upgrades in This Revision
+
+- **Pluggable simulation engines** via engine registry:
+  - `physiological-v2` (default)
+  - `simplified-v1` (legacy-compatible)
+- **PID controller support** in scenarios (`controller_enabled`, `controller_kp`, `controller_ki`, `controller_kd`).
+- **SQLite persistence** added as default storage (`backend/app/data/app.db`) with automatic bootstrap from existing JSON seed files.
+- Existing routes are unchanged and response schema remains compatible.

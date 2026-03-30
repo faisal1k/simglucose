@@ -17,7 +17,6 @@ router = APIRouter(tags=["simulation"])
 patient_repo = Repository("patients.json")
 scenario_repo = Repository("scenarios.json")
 sim_repo = Repository("simulations.json")
-engine = SimulationEngine()
 
 
 def _resolve_patient(payload: SimulationRequest) -> Patient:
@@ -47,6 +46,7 @@ def simulate(payload: SimulationRequest):
     patient = _resolve_patient(payload)
     scenario = _resolve_scenario(payload)
 
+    engine = SimulationEngine(model_name=scenario.model_name)
     result = engine.run(
         patient=PatientProfile(**patient.model_dump(exclude={"id"})),
         config=SimulationConfig(
@@ -59,6 +59,12 @@ def simulate(payload: SimulationRequest):
             exercise=[ExerciseEvent(**e.model_dump()) for e in scenario.exercise],
             disturbance_std=scenario.disturbance_std,
             correction_threshold_mgdl=scenario.correction_threshold_mgdl,
+            model_name=scenario.model_name,
+            controller_enabled=scenario.controller_enabled,
+            controller_kp=scenario.controller_kp,
+            controller_ki=scenario.controller_ki,
+            controller_kd=scenario.controller_kd,
+            activity_effect_scale=scenario.activity_effect_scale,
         ),
         seed=payload.seed,
     )

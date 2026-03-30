@@ -42,6 +42,12 @@ export interface Scenario {
   correction_threshold_mgdl?: number | null
   exercise: ExerciseEvent[]
   disturbance_std: number
+  model_name: string
+  controller_enabled: boolean
+  controller_kp: number
+  controller_ki: number
+  controller_kd: number
+  activity_effect_scale: number
 }
 
 export interface SimulationPoint {
