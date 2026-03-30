@@ -1,0 +1,32 @@
+[
+  {
+    "id": "sample-patient-1",
+    "name": "Avery Chen",
+    "body_weight_kg": 72,
+    "age_years": 31,
+    "baseline_glucose_mgdl": 105,
+    "insulin_sensitivity_factor": 42,
+    "carb_ratio": 10,
+    "basal_rate_u_per_hr": 0.9,
+    "insulin_action_duration_min": 240,
+    "carb_absorption_duration_min": 170,
+    "glucose_effectiveness": 0.26,
+    "variability_noise_std": 2.1,
+    "activity_sensitivity_modifier": 1.1
+  },
+  {
+    "id": "sample-patient-2",
+    "name": "Jordan Park",
+    "body_weight_kg": 84,
+    "age_years": 46,
+    "baseline_glucose_mgdl": 118,
+    "insulin_sensitivity_factor": 31,
+    "carb_ratio": 8,
+    "basal_rate_u_per_hr": 1.15,
+    "insulin_action_duration_min": 280,
+    "carb_absorption_duration_min": 200,
+    "glucose_effectiveness": 0.2,
+    "variability_noise_std": 3.2,
+    "activity_sensitivity_modifier": 0.95
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "sample-scenario-1",
+    "name": "Breakfast + Walk",
+    "duration_min": 480,
+    "time_step_min": 5,
+    "starting_glucose_mgdl": 112,
+    "target_glucose_mgdl": 110,
+    "meals": [
+      {"time_min": 30, "carbs_g": 55}
+    ],
+    "boluses": [
+      {"time_min": 20, "units": 5.5}
+    ],
+    "correction_threshold_mgdl": 190,
+    "exercise": [
+      {"start_min": 140, "end_min": 190, "intensity": 0.5}
+    ],
+    "disturbance_std": 1.5
+  },
+  {
+    "id": "sample-scenario-2",
+    "name": "High-Carb Dinner",
+    "duration_min": 600,
+    "time_step_min": 5,
+    "starting_glucose_mgdl": 128,
+    "target_glucose_mgdl": 110,
+    "meals": [
+      {"time_min": 60, "carbs_g": 95}
+    ],
+    "boluses": [
+      {"time_min": 45, "units": 8}
+    ],
+    "correction_threshold_mgdl": 180,
+    "exercise": [],
+    "disturbance_std": 2
+  }
+]
